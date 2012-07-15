@@ -95,6 +95,6 @@ In this example it will display the actions based in the hash options.
 
 ## License
 
-This gem is licensed under the MIT License.
+This gem is licensed under the MIT License.\n
 DataTables is dual licensed under the [GPL v2](http://datatables.net/license_gpl2) license or a [BSD (3-point)](http://datatables.net/license_bsd) license.
 DataTables designed and created by SpryMedia.
