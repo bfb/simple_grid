@@ -4,7 +4,7 @@ require File.expand_path('../lib/simple_grid/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Bruno"]
   gem.email         = ["b.fbohn@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
+  gem.description   = %q{This gem uses jQuery Data Tables to generate grids in Ruby on Rails applications}
   gem.summary       = %q{TODO: Write a gem summary}
   gem.homepage      = ""
 
@@ -14,4 +14,5 @@ Gem::Specification.new do |gem|
   gem.name          = "simple_grid"
   gem.require_paths = ["lib"]
   gem.version       = SimpleGrid::VERSION
+  gem.add_dependency "rails", ">= 3.1.3"
 end
