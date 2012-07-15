@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["b.fbohn@gmail.com"]
   gem.description   = %q{This gem uses jQuery Data Tables to generate grids in Ruby on Rails applications}
   gem.summary       = %q{jquery datatables for rails apps}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/brunfb/simple_grid"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
