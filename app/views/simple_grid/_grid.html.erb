@@ -1,0 +1,77 @@
+<%= javascript_tag do %>
+	$(document).ready(function() {
+	    $('#datatable').dataTable();
+	});
+<% end %>
+
+<table id="datatable">
+	<thead>
+  <tr>
+		<% columns.each do |column| %>
+		<th><%= column.capitalize %></th>
+		<% end %>
+		
+		<% extra_columns.each_key do |extra| %>
+		<th><%= extra_columns[extra][:label] %></th>
+		<% end %>
+		
+		<% if (actions.include?(:show) && !actions[:show].include?(:display)) || !actions.include?(:show) %>
+    <th></th>
+		<% end %>
+		<% if (actions.include?(:edit) && !actions[:edit].include?(:display)) || !actions.include?(:edit) %>
+    <th></th>
+		<% end %>
+		<% if (actions.include?(:destroy) && !actions[:destroy].include?(:display)) || !actions.include?(:destroy) %>
+    <th></th>
+		<% end %>
+  </tr>
+	</thead>
+	<tbody>
+<% collection.each do |record| %>
+  <tr>
+		<% columns.each do |column| %>
+    	<td><%= record.send(column) %></td>
+		<% end %>
+		
+		<% extra_columns.each_key do |extra| %>
+			<% if extra_columns[extra].include?(:content) %>
+				<td><%= extra_columns[extra][:content].html_safe %></td>
+			<% else %>
+				<td><%= eval("record.#{extra_columns[extra][:relationship]}") %></td>
+			<% end %>
+		<% end %>
+		
+		<% if actions.include?(:show) && !actions[:show].include?(:display) %>
+			<% 
+				route = actions[:show].include?(:route) ? actions[:show][:route] : record
+				label = actions[:show].include?(:label) ? actions[:show][:label] : "Show"
+			%>
+    	<td><%= link_to actions[:show][:label], route, actions[:show][:html] %></td>
+		<% elsif !actions.include?(:show) %>
+			<td><%= link_to 'Show', route %></td>
+		<% end %>
+		
+		<% if actions.include?(:edit) && !actions[:edit].include?(:display) %>
+			<%
+				route = actions[:edit].include?(:route) ? send(actions[:edit][:route], record) : send("edit_#{current_model}_path", record) 		
+				label = actions[:edit].include?(:label) ? actions[:edit][:label] : "Edit"
+			%>
+    	<td><%= link_to label, route, actions[:edit][:html] %></td>
+		<% elsif !actions.include?(:edit) %>
+			<td><%= link_to 'Edit', send("edit_#{current_model}_path", record) %></td>
+		<% end %>
+		
+		<% if actions.include?(:destroy) && !actions[:destroy].include?(:display) %>
+			<%
+				route = actions[:destroy].include?(:route) ? actions[:destroy][:route] : record
+				label = actions[:destroy].include?(:label) ? actions[:destroy][:label] : "Destroy"
+				html = actions[:destroy].include?(:html) ? actions[:destroy][:html] : {}
+			%>
+    	<td><%= link_to label, route, html, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% elsif !actions.include?(:destroy) %>
+			<td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
+  </tr>
+<% end %>
+	</tbody>
+</table>
