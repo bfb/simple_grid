@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Bruno"]
   gem.email         = ["b.fbohn@gmail.com"]
   gem.description   = %q{This gem uses jQuery Data Tables to generate grids in Ruby on Rails applications}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.summary       = %q{jquery datatables for rails apps}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
