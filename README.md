@@ -41,24 +41,27 @@ To use the gem in our book index view we need to call the method simple_grid. Li
 
 The second parameter can be an options hash, see the examples below:
 
-	<%= simple_grid(@books, :exclude_columns => ["id","description","created_at","updated_at"]) %>
-	# In this example it will not display the columns present in :exclude_columns array
+In this example it will not display the columns present in :exclude_columns array
 
+	<%= simple_grid(@books, :exclude_columns => ["id","description","created_at","updated_at"]) %>
+
+In this example it will not display the columns "id" and "description" but it will display an extra column with the author name based in our relationship.
 
 	<%= simple_grid(@books, :exclude_columns => ["id","description"],
 		:extra_columns => {
-		:author_name => { :label => "Author", :relationship => "author.name" }
-	}) %>
-	# In this example it will not display the columns "id" and "description" but it will display an extra column with the author name based in our relationship.
+			:author_name => { :label => "Author", :relationship => "author.name" }
+		}) %>
 	# The :label key is the column title and the :relationship key is our models relationship.
 
+In this example it will add a new column with label "New column" and the content as html.
+
 	<%= simple_grid(@books, :exclude_columns => ["id","description"],
 		:extra_columns => {
-		:author_name => { :label => "Author", :relationship => "author.name" },
-		:other_column => { :label => "New Column", :content => "<strong>Content</strong>" }
-	}) %>
-	# In this example it will add a new column with label "New column" and the content as html.
+			:author_name => { :label => "Author", :relationship => "author.name" },
+			:other_column => { :label => "New Column", :content => "<strong>Content</strong>" }
+		}) %>
 
+In this example it will display the actions based in the hash options.
 
 	<%= simple_grid(@books, :exclude_columns => ["id","description"],
 		:extra_columns => {
@@ -68,8 +71,7 @@ The second parameter can be an options hash, see the examples below:
 			:show => { :label => "View", :html => { :id => "show_info" } },
 			:edit => { :route => "my_route" },
 			:destroy => { :display => false }
-	}) %>
-	# In this example it will display the actions based in the hash options.
+		}) %>
 	# The action show will be displayed with label "View" and the id "show_info" in the html element.
 	# The action edit will use the route "my_route" (it will interprete as "my_route(record)").
 	# The action destroy will not be displayed.
