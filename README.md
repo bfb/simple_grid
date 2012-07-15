@@ -14,11 +14,11 @@ Install the gem:
 
 Add this line to your Rails application Gemfile:
 
-   gem 'simple_grid'
+	gem 'simple_grid'
 
 Execute:
 
-  $ bundle install
+	$ bundle install
 	$ rails generate simple_grid:install
 
 Include the SimpleGrid helper in your ApplicationHelper:
@@ -95,6 +95,6 @@ In this example it will display the actions based in the hash options.
 
 ## License
 
-This gem is licensed under the MIT License.\n
+This gem is licensed under the MIT License.
 DataTables is dual licensed under the [GPL v2](http://datatables.net/license_gpl2) license or a [BSD (3-point)](http://datatables.net/license_bsd) license.
 DataTables designed and created by SpryMedia.
