@@ -1,5 +1,6 @@
 require "simple_grid/version"
 
 module SimpleGrid
-  # Your code goes here...
+  require 'simple_grid/engine'
+  require 'simple_grid/simple_grid_helpers'
 end
