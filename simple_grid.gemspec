@@ -3,7 +3,7 @@ require File.expand_path('../lib/simple_grid/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Bruno"]
-  gem.email         = ["b.fbohn@gmail.com"]
+  gem.email         = ["email@provider.com"]
   gem.description   = %q{This gem uses jQuery Data Tables to generate grids in Ruby on Rails applications}
   gem.summary       = %q{jquery datatables for rails apps}
   gem.homepage      = "https://github.com/brunfb/simple_grid"
